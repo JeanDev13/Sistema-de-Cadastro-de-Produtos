@@ -6,14 +6,14 @@
         header ("Location: index.php");
         exit;
     }
-    
+
     $id = $_GET["id"];
 
     $sql = ("SELECT * FROM produtos WHERE id = :id");
     $stmt = $pdo->prepare($sql);
     $stmt->execute([":id" => $id]);
     $produto = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+
     if (!$produto) {
     die("Produto não encontrado.");
     }
@@ -33,7 +33,9 @@
         }
         if(count($erros) > 0){
             foreach($erros as $erro){
-                echo "ERRO: " . $erro . "<br>";
+                echo '
+                <div class ="alert alert-danger" role="alert"> ' . $erro . '
+                </div>';
             }
         }else{
             $sql = ("UPDATE produtos SET nome = :nome, preco = :preco, quantidade = :quantidade, categoria = :categoria WHERE id = :id");
@@ -45,9 +47,10 @@
                 ":categoria" => $categoria,
                 ":id" => $id
             ]);
-
-            header("Location: index.php");
-            exit;
+        
+        header("Location: index.php?sucesso=editado");
+        exit;
+    
         }
     }
 ?>

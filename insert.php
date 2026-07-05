@@ -17,7 +17,9 @@
         }
         if(count($erros) > 0){
             foreach($erros as $erro){
-                echo "ERRO: " . $erro . "<br>";
+                echo '
+                <div class ="alert alert-danger" role="alert"> ' . $erro . '
+                </div>';
             }
         }else{
             $sql = "INSERT INTO produtos (nome, preco, quantidade, categoria) VALUES (:nome, :preco, :quantidade, :categoria)";
@@ -28,8 +30,10 @@
                 ":quantidade" => $quantidade,
                 ":categoria" => $categoria
             ]);
-            header("Location: index.php");
-            exit;
+         
+        header("Location: index.php?sucesso=cadastrado");
+        exit;
+
         }
 
     }

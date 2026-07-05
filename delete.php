@@ -13,7 +13,7 @@
     $stmt = $pdo->prepare($sql);
     $stmt->execute([":id" => $id]);
 
-    header ("Location: index.php");
+    header("Location: index.php?sucesso=deletado");
     exit;
 
 ?>
