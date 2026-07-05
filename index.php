@@ -16,6 +16,9 @@
     <title>LOJA</title>
   </head>
   <body>
+      <a href="insert.php">Cadastrar Produto
+      </a>
+      <br><br>  
       <table class="table">
     <thead>
       <tr>
@@ -24,6 +27,7 @@
         <th scope="col">Preço</th>
         <th scope="col">Quantidade</th>
         <th scope="col">Categoria</th>
+        <th scope="col">Ações</th>
       </tr>
     </thead>
     <tbody>
@@ -40,6 +44,15 @@
                 <td><?= $produto["preco"] ?></td>
                 <td><?= $produto["quantidade"] ?></td>
                 <td><?= $produto["categoria"] ?></td>
+                
+                <td>
+                  <a href ="update.php?id=<?= $produto["id"] ?>" class="btn btn-primary">
+                    Editar
+                  </a>
+                  <a href ="delete.php?id=<?= $produto["id"] ?>" class="btn btn-danger">
+                    Excluir
+                  </a>
+                </td>
               </tr>
             <?php endforeach; ?>
         <?php endif; ?>    
