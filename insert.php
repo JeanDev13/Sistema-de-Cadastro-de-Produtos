@@ -5,7 +5,7 @@
     if (isset($_POST["enviar"])){
         $nome = htmlspecialchars($_POST["nome"]);
         $preco = ($_POST["preco"]);
-        $quatidade = ($_POST["quatidade"]);
+        $quantidade = ($_POST["quantidade"]);
         $categoria = htmlspecialchars($_POST["categoria"]);
 
         $erros = [];
@@ -13,7 +13,7 @@
             $erros[] = "Nome do produto obrigatório para cadastro! ";
         }
         if(empty($preco)){
-            $preco[] = "Preço necessário!  ";
+            $erros[] = "Preço necessário!  ";
         }
         if(count($erros) > 0){
             foreach($erros as $erro){
@@ -43,7 +43,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-        <div class="conteiner mt-5">   
+        <div class="container mt-5">   
         <h1>Novo Produto</h1>
         <a href="index.php" class="btn btn-secondary mb-3">Voltar</a>
         <br><br>
@@ -58,16 +58,19 @@
                     <label for="formGroupExampleInput2" class="form-label">Preço</label>
                     <input type="number" name="preco" class="form-control" placeholder="preco"><br><br>
                 </div>
+                <div class="mb-3">
                     <label for="formGroupExampleInput2" class="form-label">Quantidade</label>
                     <input type="number" name="quantidade" class="form-control" placeholder="quantidade"><br><br>
                 </div>
+                <div class="mb-3">
                 <label for="formGroupExampleInput2" class="form-label">Categoria</label>
                     <input type="text" name="categoria" class="form-control" placeholder="categoria"><br><br>
                 </div>
-                <button type="submit" class="btn btn-success">
+                <button type="submit" name="enviar" class="btn btn-success">
                     Cadastrar
                 </button>
             </form>
         </div>
     </body>
 </html>
+
