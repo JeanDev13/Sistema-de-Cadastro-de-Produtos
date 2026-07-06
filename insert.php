@@ -45,35 +45,38 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/style.css">
+        <title>Novo Produto</title>
     </head>
     <body>
-        <div class="container mt-5">   
-        <h1>Novo Produto</h1>
-        <a href="index.php" class="btn btn-secondary mb-3">Voltar</a>
-        <br><br>
+        <div class="container mt-5"> 
+        <div class="card shadow p-4">  
+        <h1 class="text-center mb-4">Novo Produto</h1>
+        <a href="index.php" class="btn btn-secondary mb-4"> <- Voltar</a>
 
             <form method="post" action="">
 
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">Nome</label>
-                    <input type="text" name="nome" class="form-control" placeholder="nome"><br><br>
+                    <input type="text" name="nome" class="form-control" placeholder="nome">
                 </div>
                 <div class="mb-3">
                     <label for="formGroupExampleInput2" class="form-label">Preço</label>
-                    <input type="number" name="preco" class="form-control" placeholder="preco"><br><br>
+                    <input type="number" step= "0,01" name="preco" class="form-control" placeholder="preco">
                 </div>
                 <div class="mb-3">
                     <label for="formGroupExampleInput2" class="form-label">Quantidade</label>
-                    <input type="number" name="quantidade" class="form-control" placeholder="quantidade"><br><br>
+                    <input type="number" name="quantidade" class="form-control" placeholder="quantidade">
                 </div>
                 <div class="mb-3">
                 <label for="formGroupExampleInput2" class="form-label">Categoria</label>
-                    <input type="text" name="categoria" class="form-control" placeholder="categoria"><br><br>
+                    <input type="text" name="categoria" class="form-control" placeholder="categoria">
                 </div>
-                <button type="submit" name="enviar" class="btn btn-success">
-                    Cadastrar
+                <button type="submit" name="enviar" class="btn btn-success w-100">
+                    Cadastrar Produto
                 </button>
             </form>
+        </div>
         </div>
     </body>
 </html>
