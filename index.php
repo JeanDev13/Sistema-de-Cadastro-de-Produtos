@@ -1,10 +1,22 @@
 <?php
 
     require "conect.php";
-    
+
+    if (!empty($_GET["pesquisa"])) {
+      $pesquisa = "%" . $_GET["pesquisa"] . "%";
+      $sql = "SELECT * FROM produtos WHERE nome LIKE :pesquisa OR categoria LIKE :pesquisa";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ":pesquisa" => $pesquisa
+    ]);
+
+    }else {
     $stmt = $pdo->query("SELECT * FROM produtos");
+    }
+
     $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
+
 ?>
 
 <!doctype html>
@@ -39,6 +51,27 @@
           <?php endif; ?>
       <a href="insert.php" class="btn btn-success mb-3"> + Cadastrar Produto
       </a>  
+      
+    <form method="GET" class="row g-2 mb-4">
+      <div class="col-md-9">
+        <input
+            type="text"
+            name="pesquisa"
+            class="form-control"
+            placeholder="Pesquisar por nome ou categoria..."
+            value="<?= isset($_GET['pesquisa']) ? htmlspecialchars($_GET['pesquisa']) : '' ?>">
+      </div>
+
+      <div class="col-md-3 d-flex gap-2">
+        <button type="submit" class="btn btn-primary w-100">
+            Pesquisar
+        </button>
+        <a href="index.php" type="submit" class="btn btn-secondary">
+            Limpar
+        </a>
+      </div>
+    </form>
+
       <table class="table table-hover">
     <thead>
       <tr>
