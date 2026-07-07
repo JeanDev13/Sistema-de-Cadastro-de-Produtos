@@ -53,12 +53,44 @@ h1{
     vertical-align: middle;
 }
 
-/* Alertas */
 .alert{
     border-radius: 8px;
 }
 
-/* Espaçamento entre botões */
 .btn + .btn{
     margin-left: 5px;
+}
+
+.detalhe{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 20px;
+    margin-bottom: 12px;
+
+    background-color: #f8f9fa;
+    border-left: 5px solid #0d6efd;
+    border-radius: 8px;
+
+    transition: .2s;
+}
+
+.detalhe:hover{
+    background-color: #eef4ff;
+}
+
+.detalhe strong{
+    color: #555;
+    font-size: 16px;
+}
+
+.detalhe span{
+    color: #212529;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.card hr{
+    margin: 25px 0;
 }

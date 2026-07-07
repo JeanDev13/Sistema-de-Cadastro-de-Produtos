@@ -42,7 +42,7 @@
       <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">*</th>
+        <th scope="col">ID</th>
         <th scope="col">Produto</th>
         <th scope="col">Preço</th>
         <th scope="col">Quantidade</th>
@@ -71,6 +71,9 @@
                   </a>
                   <a href ="delete.php?id=<?= $produto["id"] ?>" class="btn btn-danger btn-sm">
                     Excluir
+                  </a>
+                  <a href="view.php?id=<?= $produto["id"] ?>" class="btn btn-info btn-sm">
+                    Visualizar
                   </a>
                 </td>
               </tr>
